@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -15,6 +14,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 const headlines = [
   'From Idea to Impact: We Build Software That Drives Your Business Forward.',
@@ -23,34 +27,30 @@ const headlines = [
 ];
 
 export default function Home() {
-  const [currentHeadline, setCurrentHeadline] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeadline((prev) => (prev + 1) % headlines.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <div className="relative h-48 md:h-48 mb-4 flex items-center justify-center overflow-hidden">
-            {headlines.map((headline, index) => (
-              <h1
-                key={index}
-                className={`text-4xl md:text-6xl font-headline font-bold text-primary transition-all duration-1000 ease-in-out absolute w-full ${
-                  index === currentHeadline
-                    ? 'opacity-100 transform-none'
-                    : 'opacity-0 transform -translate-y-full'
-                }`}
-              >
-                {headline}
-              </h1>
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {headlines.map((headline, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary h-48 flex items-center justify-center">
+                      {headline}
+                    </h1>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             We partner with innovative companies to design, build, and scale
             exceptional digital products.

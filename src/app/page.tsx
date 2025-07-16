@@ -1,5 +1,7 @@
+
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -14,13 +16,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel';
-import Autoplay from "embla-carousel-autoplay";
-import React from 'react';
+import { cn } from '@/lib/utils';
 
 const headlines = [
   'From Idea to Impact: We Build Software That Drives Your Business Forward.',
@@ -29,37 +25,36 @@ const headlines = [
 ];
 
 export default function Home() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  )
+  const [currentHeadline, setCurrentHeadline] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentHeadline((prev) => (prev + 1) % headlines.length);
+        setIsFading(false);
+      }, 500); // Fade out duration
+    }, 4000); // Time each headline is displayed
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <Carousel
-            plugins={[plugin.current]}
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            className="w-full"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-          >
-            <CarouselContent>
-              {headlines.map((headline, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                    <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary h-48 flex items-center justify-center">
-                      {headline}
-                    </h1>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+          <div className="h-48 flex items-center justify-center">
+            <h1
+              className={cn(
+                'text-4xl md:text-6xl font-headline font-bold text-primary transition-opacity duration-500',
+                isFading ? 'opacity-0' : 'opacity-100'
+              )}
+            >
+              {headlines[currentHeadline]}
+            </h1>
+          </div>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             We partner with innovative companies to design, build, and scale
             exceptional digital products.
@@ -217,9 +212,10 @@ function ServiceCard({
           <p className="text-muted-foreground">{description}</p>
         </CardContent>
         <div className="p-6 pt-0">
-            <div className="text-primary font-semibold flex items-center justify-center gap-2">
-                Learn More <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-            </div>
+          <div className="text-primary font-semibold flex items-center justify-center gap-2">
+            Learn More{' '}
+            <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+          </div>
         </div>
       </Link>
     </Card>
@@ -265,7 +261,11 @@ function TestimonialCard({
         </blockquote>
         <div className="mt-4 flex items-center gap-4">
           <Avatar>
-            <AvatarImage src={avatarUrl} alt={name} data-ai-hint="person headshot" />
+            <AvatarImage
+              src={avatarUrl}
+              alt={name}
+              data-ai-hint="person headshot"
+            />
             <AvatarFallback>{avatarFallback}</AvatarFallback>
           </Avatar>
           <div>

@@ -37,7 +37,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <div className="relative h-24 md:h-32 mb-4 flex items-center justify-center overflow-hidden">
+          <div className="relative h-48 md:h-48 mb-4 flex items-center justify-center overflow-hidden">
             {headlines.map((headline, index) => (
               <h1
                 key={index}

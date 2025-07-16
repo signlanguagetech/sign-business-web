@@ -19,6 +19,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
+import React from 'react';
 
 const headlines = [
   'From Idea to Impact: We Build Software That Drives Your Business Forward.',
@@ -27,17 +29,24 @@ const headlines = [
 ];
 
 export default function Home() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  )
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
           <Carousel
+            plugins={[plugin.current]}
             opts={{
               align: 'start',
               loop: true,
             }}
             className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {headlines.map((headline, index) => (
@@ -251,7 +260,7 @@ function TestimonialCard({
   return (
     <Card className="p-6">
       <CardContent className="p-0">
-        <blockquote className="border-l-4 border-accent pl-4 italic text-muted-foreground">
+        <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
           {quote}
         </blockquote>
         <div className="mt-4 flex items-center gap-4">

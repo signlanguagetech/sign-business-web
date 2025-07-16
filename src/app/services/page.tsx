@@ -11,28 +11,28 @@ export const metadata: Metadata = {
 
 const services = [
     {
-        icon: <Code className="h-8 w-8 text-accent" />,
+        icon: <Code className="h-8 w-8 text-primary" />,
         title: "Custom Software Development",
         description: "Tailored software solutions that solve your unique business challenges and scale with your growth.",
         href: "/services/custom-software-development",
         features: ["Web Application Development", "API Development & Integration", "SaaS Product Development", "System Architecture Design"],
     },
     {
-        icon: <Palette className="h-8 w-8 text-accent" />,
+        icon: <Palette className="h-8 w-8 text-primary" />,
         title: "UI/UX Design",
         description: "Creating intuitive, beautiful, and user-centric interfaces that provide a seamless and engaging user experience.",
         href: "#",
         features: ["User Research & Analysis", "Wireframing & Prototyping", "Interaction Design", "Usability Testing"],
     },
     {
-        icon: <Smartphone className="h-8 w-8 text-accent" />,
+        icon: <Smartphone className="h-8 w-8 text-primary" />,
         title: "Mobile App Development",
         description: "Building performant, scalable, and engaging native and cross-platform mobile applications for both iOS and Android.",
         href: "#",
         features: ["Native iOS & Android Apps", "Cross-Platform Development", "App Store Deployment", "Maintenance & Support"],
     },
     {
-        icon: <Cloud className="h-8 w-8 text-accent" />,
+        icon: <Cloud className="h-8 w-8 text-primary" />,
         title: "Cloud & DevOps",
         description: "Automating your infrastructure and deployment pipelines for maximum efficiency, scalability, and reliability.",
         href: "#",
@@ -63,7 +63,7 @@ export default function ServicesPage() {
                             <Card key={index} className="flex flex-col">
                                 <CardHeader>
                                     <div className="flex items-center gap-4">
-                                        <div className="p-3 bg-accent/10 rounded-full">{service.icon}</div>
+                                        <div className="p-3 bg-primary/10 rounded-full">{service.icon}</div>
                                         <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
                                     </div>
                                 </CardHeader>
@@ -72,8 +72,8 @@ export default function ServicesPage() {
                                     <ul className="space-y-3 mb-6 flex-grow">
                                         {service.features.map((feature, fIndex) => (
                                             <li key={fIndex} className="flex items-center gap-3">
-                                                <Check className="h-5 w-5 text-accent" />
-                                                <span className="text-sm">{feature}</span>
+                                                <Check className="h-5 w-5 text-primary" />
+                                                <span className="text-sm text-muted-foreground">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>

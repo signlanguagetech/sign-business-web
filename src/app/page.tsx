@@ -208,7 +208,7 @@ function ServiceCard({
           <p className="text-muted-foreground">{description}</p>
         </CardContent>
         <div className="p-6 pt-0">
-            <div className="text-accent font-semibold flex items-center justify-center gap-2">
+            <div className="text-primary font-semibold flex items-center justify-center gap-2">
                 Learn More <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
             </div>
         </div>

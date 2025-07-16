@@ -51,8 +51,8 @@ export default function AboutPage() {
                         {values.map((value) => (
                             <Card key={value.name} className="text-center">
                                 <CardHeader>
-                                    <div className="mx-auto bg-accent/10 p-3 rounded-full w-fit">
-                                      <CheckCircle className="h-6 w-6 text-accent" />
+                                    <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
+                                      <CheckCircle className="h-6 w-6 text-primary" />
                                     </div>
                                     <CardTitle className="font-headline text-xl">{value.name}</CardTitle>
                                 </CardHeader>
@@ -82,7 +82,7 @@ export default function AboutPage() {
                                     <AvatarFallback>{member.fallback}</AvatarFallback>
                                 </Avatar>
                                 <h3 className="text-lg font-bold text-primary">{member.name}</h3>
-                                <p className="text-accent font-semibold">{member.title}</p>
+                                <p className="text-muted-foreground font-semibold">{member.title}</p>
                             </div>
                         ))}
                     </div>

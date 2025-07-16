@@ -31,31 +31,31 @@ export default function ContactPage() {
                         <div className="space-y-8">
                             <h2 className="text-2xl font-headline font-bold">Other Ways to Connect</h2>
                             <div className="flex items-start gap-4">
-                                <div className="p-3 bg-accent/10 rounded-full text-accent">
+                                <div className="p-3 bg-primary/10 rounded-full text-primary">
                                     <Mail className="h-6 w-6" />
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg">Email Us</h3>
                                     <p className="text-muted-foreground">Send us an email directly.</p>
-                                    <a href="mailto:hello@craftedcode.com" className="text-accent font-medium hover:underline">
+                                    <a href="mailto:hello@craftedcode.com" className="text-primary font-medium hover:underline">
                                         hello@craftedcode.com
                                     </a>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
-                                <div className="p-3 bg-accent/10 rounded-full text-accent">
+                                <div className="p-3 bg-primary/10 rounded-full text-primary">
                                     <Phone className="h-6 w-6" />
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg">Call Us</h3>
                                     <p className="text-muted-foreground">Speak with our team.</p>
-                                    <a href="tel:+1234567890" className="text-accent font-medium hover:underline">
+                                    <a href="tel:+1234567890" className="text-primary font-medium hover:underline">
                                         +1 (234) 567-890
                                     </a>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
-                                <div className="p-3 bg-accent/10 rounded-full text-accent">
+                                <div className="p-3 bg-primary/10 rounded-full text-primary">
                                     <MapPin className="h-6 w-6" />
                                 </div>
                                 <div>

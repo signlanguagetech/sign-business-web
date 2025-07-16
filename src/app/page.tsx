@@ -80,25 +80,25 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <ServiceCard
-              icon={<Code className="h-8 w-8 text-accent" />}
+              icon={<Code className="h-8 w-8 text-primary" />}
               title="Custom Software Development"
               description="Tailored software solutions that solve your unique business challenges and scale with your growth."
               href="/services/custom-software-development"
             />
             <ServiceCard
-              icon={<Palette className="h-8 w-8 text-accent" />}
+              icon={<Palette className="h-8 w-8 text-primary" />}
               title="UI/UX Design"
               description="Creating intuitive and beautiful user interfaces that provide a seamless user experience."
               href="/services"
             />
             <ServiceCard
-              icon={<Smartphone className="h-8 w-8 text-accent" />}
+              icon={<Smartphone className="h-8 w-8 text-primary" />}
               title="Mobile App Development"
               description="Building performant and engaging mobile applications for both iOS and Android platforms."
               href="/services"
             />
             <ServiceCard
-              icon={<Cloud className="h-8 w-8 text-accent" />}
+              icon={<Cloud className="h-8 w-8 text-primary" />}
               title="Cloud & DevOps"
               description="Automating your infrastructure and deployment pipelines for maximum efficiency and reliability."
               href="/services"
@@ -201,7 +201,7 @@ function ServiceCard({
     <Card className="group text-center hover:shadow-xl transition-shadow duration-300">
       <Link href={href} className="flex flex-col h-full">
         <CardHeader className="items-center">
-          <div className="p-4 bg-accent/10 rounded-full">{icon}</div>
+          <div className="p-4 bg-primary/10 rounded-full">{icon}</div>
           <CardTitle className="mt-4 font-headline text-xl">{title}</CardTitle>
         </CardHeader>
         <CardContent className="flex-grow">

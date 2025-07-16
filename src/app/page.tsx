@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -16,7 +15,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { cn } from '@/lib/utils';
 
 const headlines = [
   'From Idea to Impact: We Build Software That Drives Your Business Forward.',
@@ -26,18 +24,12 @@ const headlines = [
 
 export default function Home() {
   const [currentHeadline, setCurrentHeadline] = useState(0);
-  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFading(true);
-      setTimeout(() => {
+    const timer = setInterval(() => {
         setCurrentHeadline((prev) => (prev + 1) % headlines.length);
-        setIsFading(false);
-      }, 500); // Fade out duration
-    }, 4000); // Time each headline is displayed
-
-    return () => clearInterval(interval);
+    }, 5000);
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -45,15 +37,19 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-background py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <div className="h-48 flex items-center justify-center">
+          <div className="relative h-24 md:h-32 mb-4 flex items-center justify-center overflow-hidden">
+            {headlines.map((headline, index) => (
             <h1
-              className={cn(
-                'text-4xl md:text-6xl font-headline font-bold text-primary transition-opacity duration-500',
-                isFading ? 'opacity-0' : 'opacity-100'
-              )}
+                key={index}
+                className={`text-4xl md:text-6xl font-headline font-bold text-primary transition-all duration-1000 ease-in-out absolute w-full ${
+                  index === currentHeadline
+                    ? 'opacity-100 transform-none'
+                    : 'opacity-0 transform -translate-y-full'
+                }`}
             >
-              {headlines[currentHeadline]}
+                {headline}
             </h1>
+            ))}
           </div>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             We partner with innovative companies to design, build, and scale

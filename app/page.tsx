@@ -35,13 +35,13 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="bg-background py-20 md:py-32">
+      <section className="bg-background py-10 md:py-20">
         <div className="container flex flex-col px-4 mx-auto">
-          <div className="relative h-24 md:h-32 mb-4 flex items-center justify-center overflow-hidden">
+          <div className="relative sm:h-32 md:h-60 h-80 w-full lg:w-1/2 md:w-2/4 mb-4 flex items-center justify-center overflow-hidden">
             {headlines.map((headline, index) => (
             <h1
                 key={index}
-                className={`text-4xl md:text-6xl font-headline font-bold text-primary transition-all duration-1000 ease-[var(--ease-back-in-out)] absolute w-full ${
+                className={`text-4xl font-headline font-bold text-primary transition-all duration-1000 ease-[var(--ease-back-in-out)] absolute w-full ${
                   index === currentHeadline
                     ? 'opacity-100 transform-none'
                     : 'opacity-0 transform -translate-y-full'

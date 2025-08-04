@@ -21,6 +21,7 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const title = 'Sign Business';
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
     const isActive = pathname === href;
@@ -60,7 +61,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2">
           <CodeXml className="h-7 w-7 text-primary" />
           <span className="font-bold font-headline text-xl text-primary">
-            Crafted Code
+            {title}
           </span>
         </Link>
 
@@ -84,7 +85,7 @@ export default function Header() {
                 <Link href="/" className="flex items-center gap-2 mb-8">
                   <CodeXml className="h-7 w-7 text-primary" />
                   <span className="font-bold font-headline text-xl text-primary">
-                    Crafted Code
+                    {title}
                   </span>
                 </Link>
                 <nav className="flex flex-col gap-4">

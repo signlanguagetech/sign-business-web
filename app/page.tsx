@@ -36,12 +36,12 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-background py-20 md:py-32">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container flex flex-col px-4 mx-auto">
           <div className="relative h-24 md:h-32 mb-4 flex items-center justify-center overflow-hidden">
             {headlines.map((headline, index) => (
             <h1
                 key={index}
-                className={`text-4xl md:text-6xl font-headline font-bold text-primary transition-all duration-1000 ease-in-out absolute w-full ${
+                className={`text-4xl md:text-6xl font-headline font-bold text-primary transition-all duration-1000 ease-[var(--ease-back-in-out)] absolute w-full ${
                   index === currentHeadline
                     ? 'opacity-100 transform-none'
                     : 'opacity-0 transform -translate-y-full'
@@ -51,11 +51,11 @@ export default function Home() {
             </h1>
             ))}
           </div>
-          <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl">
             We partner with innovative companies to design, build, and scale
             exceptional digital products.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
+          <div className="mt-8 flex gap-4">
             <Button asChild size="lg">
               <Link href="/contact">Schedule a Free Consultation</Link>
             </Button>

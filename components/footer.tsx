@@ -10,7 +10,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <CodeXml className="h-7 w-7 text-primary" />
               <span className="font-bold font-headline text-xl text-primary">
-                Crafted Code
+                Sign Business
               </span>
             </Link>
             <p className="text-muted-foreground text-center md:text-left text-sm max-w-xs">
@@ -19,8 +19,7 @@ export default function Footer() {
           </div>
           
           <div className="text-center">
-            <h3 className="font-headline text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 mt-0 md:mt-10 flex gap-0 flex-col md:flex-row md:gap-4 justify-center">
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">About Us</Link></li>
               <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Services</Link></li>
               <li><Link href="/portfolio" className="text-sm text-muted-foreground hover:text-primary">Our Work</Link></li>
@@ -30,7 +29,7 @@ export default function Footer() {
 
           <div className="text-center md:text-right">
             <h3 className="font-headline text-lg font-semibold mb-4">Connect With Us</h3>
-            <p className="text-sm text-muted-foreground mb-4">hello@craftedcode.com</p>
+            <p className="text-sm text-muted-foreground mb-4">hello@signbusiness.com</p>
             <div className="flex justify-center md:justify-end gap-4">
               <Link href="#" aria-label="LinkedIn">
                 <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
@@ -46,7 +45,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Crafted Code. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sign Business. All rights reserved.</p>
         </div>
       </div>
     </footer>

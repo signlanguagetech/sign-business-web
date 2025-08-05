@@ -1,20 +1,11 @@
-'use client';
-
+'use client';;
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  Code,
-  Palette,
-  Smartphone,
-  Cloud,
-  Users,
-  Rocket,
-  ShieldCheck,
-} from 'lucide-react';
+import { Code, Palette, Smartphone, Cloud, Users, Rocket, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { ServiceCard } from '@/components/service-card';
+import { FeatureCard } from '@/components/feature-card';
+import { TestimonialCard } from '@/components/testimonial-card';
 
 const headlines = [
   'From Idea to Impact: We Build Software That Drives Your Business Forward.',
@@ -183,93 +174,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  );
-}
-
-function ServiceCard({
-  icon,
-  title,
-  description,
-  href,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  href: string;
-}) {
-  return (
-    <Card className="group text-center hover:shadow-xl transition-shadow duration-300">
-      <Link href={href} className="flex flex-col h-full">
-        <CardHeader className="items-center">
-          <div className="p-4 bg-primary/10 rounded-full">{icon}</div>
-          <CardTitle className="mt-4 font-headline text-xl">{title}</CardTitle>
-        </CardHeader>
-        <CardContent className="flex-grow">
-          <p className="text-muted-foreground">{description}</p>
-        </CardContent>
-        <div className="p-6 pt-0">
-          <div className="text-primary font-semibold flex items-center justify-center gap-2">
-            Learn More{' '}
-            <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-          </div>
-        </div>
-      </Link>
-    </Card>
-  );
-}
-
-function FeatureCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="p-4 bg-primary/10 rounded-full">{icon}</div>
-      <h3 className="mt-4 text-xl font-headline font-bold">{title}</h3>
-      <p className="mt-2 text-muted-foreground">{description}</p>
-    </div>
-  );
-}
-
-function TestimonialCard({
-  quote,
-  name,
-  title,
-  avatarUrl,
-  avatarFallback,
-}: {
-  quote: string;
-  name: string;
-  title: string;
-  avatarUrl: string;
-  avatarFallback: string;
-}) {
-  return (
-    <Card className="p-6">
-      <CardContent className="p-0">
-        <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
-          {quote}
-        </blockquote>
-        <div className="mt-4 flex items-center gap-4">
-          <Avatar>
-            <AvatarImage
-              src={avatarUrl}
-              alt={name}
-              data-ai-hint="person headshot"
-            />
-            <AvatarFallback>{avatarFallback}</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="font-semibold text-primary">{name}</p>
-            <p className="text-sm text-muted-foreground">{title}</p>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
   );
 }

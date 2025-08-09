@@ -1,11 +1,12 @@
-'use client';;
-import { useState, useEffect } from 'react';
+'use client';
+
 import Link from 'next/link';
 import { Code, Palette, Smartphone, Cloud, Users, Rocket, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/service-card';
 import { FeatureCard } from '@/components/feature-card';
 import { TestimonialCard } from '@/components/testimonial-card';
+import { useRotatingList } from '@/hooks/useRotatingList';
 
 const headlines = [
   'From Idea to Impact: We Build Software That Drives Your Business Forward.',
@@ -14,15 +15,8 @@ const headlines = [
 ];
 
 export default function Home() {
-  const [currentHeadline, setCurrentHeadline] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-        setCurrentHeadline((prev) => (prev + 1) % headlines.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
+  const { index: currentHeadline } = useRotatingList(headlines, 3000);
+  
   return (
     <div className="flex flex-col">
       {/* Hero Section */}

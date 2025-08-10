@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Code, Palette, Smartphone, Cloud, Users, Rocket, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Workflow, Server, Layers, Users, Rocket, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/service-card';
 import { FeatureCard } from '@/components/feature-card';
@@ -9,9 +9,9 @@ import { TestimonialCard } from '@/components/testimonial-card';
 import { useRotatingList } from '@/hooks/useRotatingList';
 
 const headlines = [
-  'From Idea to Impact: We Build Software That Drives Your Business Forward.',
-  'Your Vision, Engineered. Expert Software Development and Product Design.',
-  'Reliable. Scalable. Secure. The Development Partner You’ve Been Searching For.',
+  'Production-grade Frontend & Backend Engineering: React, Angular, Next.js, Node.js.',
+  'Robust Reactive Architectures with RxJS, Effect-TS & Zustand.',
+  'Type-safe APIs & Performant Interfaces Delivered with Craft & Speed.',
 ];
 
 export default function Home() {
@@ -65,28 +65,28 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <ServiceCard
-              icon={<Code className="h-8 w-8 text-primary" />}
-              title="Custom Software Development"
-              description="Tailored software solutions that solve your unique business challenges and scale with your growth."
-              href="/services/custom-software-development"
+              icon={<LayoutDashboard className="h-8 w-8 text-primary" />}
+              title="Frontend Engineering"
+              description="Component-driven, accessible, high-performance UIs in React, Next.js, Angular & Astro with design systems and SSR/ISR optimization."
+              href="/services/frontend-engineering"
             />
             <ServiceCard
-              icon={<Palette className="h-8 w-8 text-primary" />}
-              title="UI/UX Design"
-              description="Creating intuitive and beautiful user interfaces that provide a seamless user experience."
-              href="/services"
+              icon={<Workflow className="h-8 w-8 text-primary" />}
+              title="Reactive & State Architecture"
+              description="Predictable dataflow & side-effect management using RxJS, Effect-TS, Zustand; scalable store patterns & stream composition."
+              href="/services/reactive-architecture"
             />
             <ServiceCard
-              icon={<Smartphone className="h-8 w-8 text-primary" />}
-              title="Mobile App Development"
-              description="Building performant and engaging mobile applications for both iOS and Android platforms."
-              href="/services"
+              icon={<Server className="h-8 w-8 text-primary" />}
+              title="Backend APIs (Node/Nest/Express)"
+              description="Type-safe REST/GraphQL APIs, modular NestJS architecture, auth, caching, testing, performance profiling & observability."
+              href="/services/backend-apis"
             />
             <ServiceCard
-              icon={<Cloud className="h-8 w-8 text-primary" />}
-              title="Cloud & DevOps"
-              description="Automating your infrastructure and deployment pipelines for maximum efficiency and reliability."
-              href="/services"
+              icon={<Layers className="h-8 w-8 text-primary" />}
+              title="Full-Stack Delivery"
+              description="End-to-end integration: frontend + backend alignment, CI/CD, code quality processes, performance budgets, maintainable monorepos."
+              href="/services/full-stack-delivery"
             />
           </div>
         </div>

@@ -14,8 +14,8 @@ const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Our Work' },
   { href: '/about', label: 'About Us' },
-  { href: '/category-identifier', label: 'AI Tool' },
-  { href: '/contact', label: 'Contact' },
+  // { href: '/category-identifier', label: 'AI Tool' },
+  // { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -70,6 +70,9 @@ export default function Header() {
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
+          <Button>
+            <Link href="/contact">Contact Us</Link>
+          </Button>
         </nav>
 
         <div className="md:hidden">

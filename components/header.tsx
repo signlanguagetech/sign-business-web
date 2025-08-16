@@ -83,7 +83,7 @@ export default function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="full">
               <div className="p-6">
                 <Link href="/" className="flex items-center gap-2 mb-8">
                   <CodeXml className="h-7 w-7 text-primary" />

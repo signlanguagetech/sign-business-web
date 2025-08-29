@@ -13,15 +13,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
+            <div
               onClick={toggle}
-              className="hover:bg-transparent hover:text-inherit cursor-pointer"
+              className="p-2 cursor-pointer rounded-md transition-colors"
               aria-label="Toggle sidebar"
+              role="button"
             >
-            {open ? <PanelLeft className="h-5 w-5" /> : <Square className="h-5 w-5" />}
-            </Button>
+              {open ? <PanelLeft className="h-5 w-5" /> : <Square className="h-5 w-5" />}
+            </div>
           
           <Link href="/" className="flex items-center gap-2">
             <CodeXml className="h-7 w-7 text-primary" />

@@ -33,6 +33,19 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Close sidebar on route change (mobile)
+  useEffect(() => {
+    const handleResize = () => {
+      // Close sidebar on mobile when resizing to desktop
+      if (window.innerWidth >= 768 && open) {
+        // Don't auto-close on desktop resize, only manual toggle
+      }
+    };
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [open]);
+
   return (
     <SidebarContext.Provider value={{ open, toggle, close }}>
       {children}
@@ -45,60 +58,48 @@ export function Sidebar() {
   const pathname = usePathname();
   const ref = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   function onClick(e: MouseEvent) {
-  //     console.log(e.target)
-  //     console.log(ref.current?.contains(e.target as Node))
-  //     if (!ref.current) return;
-  //     if (!open) {
-  //       console.log('closs...')
-  //       close();
-  //     }
-  //   }
-  //   document.addEventListener("mousedown", onClick);
-  //   return () => document.removeEventListener("mousedown", onClick);
-  // }, [close]);
+  const handleLinkClick = () => {
+    // Only close on mobile (< md breakpoint)
+    if (window.innerWidth < 768) {
+      close();
+    }
+  };
 
   return (
-    <>
-      {/* Backdrop */}
-      <div
-        aria-hidden
-        className={cn(
-          "fixed inset-0 z-40 backdrop-blur transition-opacity md:hidden",
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
-        // onClick={close}
-      />
-      {/* Panel */}
-      <aside
-        ref={ref}
-        className={cn(
-          "fixed left-0 top-16 bottom-0 z-50 w-64 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-          "transition-transform duration-300 will-change-transform",
-          open ? "translate-x-0" : "-translate-x-full",
-          "md:static md:top-auto md:bottom-auto md:z-auto md:w-64"
-        )}
-      >
-        <nav className="p-6 space-y-4">
-          {navLinks.map(({ href, label }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                onClick={close}
-                className={cn(
-                  "block text-lg font-handwriting", // mimic playful font from mock
-                  isActive ? "text-primary" : "text-foreground"
-                )}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
-      </aside>
-    </>
+    <aside
+      ref={ref}
+      className={cn(
+        // Base styling
+        "w-64 bg-background border-r",
+        
+        // Mobile: fixed positioned overlay with high z-index
+        "fixed left-0 top-16 bottom-0 z-50",
+        "transform transition-transform duration-300 ease-in-out will-change-transform",
+        open ? "translate-x-0" : "-translate-x-full",
+        
+        // Desktop: fixed positioned, lower z-index so it goes under header
+        "md:top-0 md:fixed md:h-full md:z-30",
+        open ? "md:translate-x-0" : "md:-translate-x-full"
+      )}
+    >
+      <nav className="p-6 space-y-4 pt-20 md:pt-20">
+        {navLinks.map(({ href, label }) => {
+          const isActive = pathname === href;
+          return (
+            <Link
+              key={href}
+              href={href}
+              onClick={handleLinkClick}
+              className={cn(
+                "block text-lg font-handwriting transition-colors hover:text-primary",
+                isActive ? "text-primary" : "text-foreground"
+              )}
+            >
+              {label}
+            </Link>
+          );
+        })}
+      </nav>
+    </aside>
   );
 }

@@ -9,31 +9,36 @@ export default function Main({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { open } = useSidebar();
+  const { open, close } = useSidebar();
 
   return (
-    <div className="relative flex min-h-screen flex-col">
-      <div className="md:hidden">
-        <Sidebar />
+    <div className="flex flex-1 relative overflow-hidden">
+      <Sidebar />
+      <div 
+        className={cn(
+          "flex flex-col flex-1 transition-all duration-300 ease-in-out",
+          "w-full", // Ensure full width on mobile
+          "md:transition-margin md:duration-300 md:ease-in-out", // Desktop: smooth transition when sidebar opens/closes
+          open 
+            ? "md:ml-64" // Move content right when sidebar is open (264px = w-64)
+            : "md:ml-0"  // Normal position when sidebar is closed
+        )}
+      onClick={close}
+      >
+        <main className="flex-1 p-6 overflow-auto">
+          {children}
+        </main>
+        <Footer />
       </div>
-      <div className="flex-1 w-full md:flex md:gap-6 overflow-hidden">
-        <div
-          className={cn(
-            "transform transition-transform duration-300 linear will-change-transform fixed md:block",
-            open ? "left-0" : "left-[-300px]",
-            open ? "translate-x-0" : "-translate-x-full",
-            "md:pt-6"
-          )}
-        >
-          <Sidebar />
-        </div>
-        <main className={cn(
-          "transform transition-transform duration-300 linear will-change-transform md:pt-6 md:transform-none",
-          open ? "translate-x-64" : "translate-x-0",
-          open ? "w-[calc(100%-250px)]" : "w-full"
-        )}>{children}</main>
-      </div>
-      <Footer />
+      
+      {/* Mobile backdrop */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 bg-black/70 transition-opacity backdrop-blur md:hidden",
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+        onClick={close}
+      />
     </div>
   );
 }

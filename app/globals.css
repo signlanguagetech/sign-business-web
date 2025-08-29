@@ -46,6 +46,7 @@
   --ease-back-in-out: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --ease-back-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-back-in: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  --ease-curve-sidebar: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {

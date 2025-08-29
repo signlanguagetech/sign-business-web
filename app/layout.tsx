@@ -99,8 +99,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SidebarProvider>
-            <Header />
-            <Main>{children}</Main>
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <Main>{children}</Main>
+            </div>
           </SidebarProvider>
         </ThemeProvider>
       </body>

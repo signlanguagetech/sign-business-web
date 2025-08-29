@@ -78,11 +78,11 @@ export function Sidebar() {
         open ? "translate-x-0" : "-translate-x-full",
         
         // Desktop: fixed positioned, lower z-index so it goes under header
-        "md:top-0 md:fixed md:h-full md:z-30",
+        "md:top-0 md:fixed md:h-full md:z-30 md:mt-[200px]",
         open ? "md:translate-x-0" : "md:-translate-x-full"
       )}
     >
-      <nav className="p-6 space-y-4 pt-20 md:pt-20">
+      <nav className="pl-10 space-y-4">
         {navLinks.map(({ href, label }) => {
           const isActive = pathname === href;
           return (

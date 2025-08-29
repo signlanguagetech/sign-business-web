@@ -15,13 +15,12 @@ export default function Header() {
         <div className="flex items-center gap-4">
             <div
               onClick={toggle}
-              className="p-2 cursor-pointer rounded-md transition-colors"
+              className="p-2 cursor-pointer rounded-md transition-colors text-primary-44 hover:text-primary-100 duration-short"
               aria-label="Toggle sidebar"
               role="button"
             >
               {open ? <PanelLeft className="h-5 w-5" /> : <Square className="h-5 w-5" />}
             </div>
-          
           <Link href="/" className="flex items-center gap-2">
             <CodeXml className="h-7 w-7 text-primary" />
             <span className="font-bold font-headline text-xl text-primary">

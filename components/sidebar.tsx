@@ -70,7 +70,7 @@ export function Sidebar() {
       ref={ref}
       className={cn(
         // Base styling
-        "w-64 bg-background border-r",
+        "w-64 bg-background",
         
         // Mobile: fixed positioned overlay with high z-index
         "fixed left-0 top-16 bottom-0 z-50",

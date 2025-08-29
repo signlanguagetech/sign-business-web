@@ -1,15 +1,13 @@
 "use client";;
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { CodeXml, LayoutGrid } from 'lucide-react';
+import { CodeXml, PanelLeft, Square } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from './mode-toggle';
 import { useSidebar } from './sidebar';
 
 export default function Header() {
   const title = 'Sign Business';
-  const { toggle } = useSidebar();
+  const { open, toggle } = useSidebar();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -21,9 +19,7 @@ export default function Header() {
             {title}
           </span>
         </Link>
-        <Button variant="outline" size="icon" onClick={toggle} aria-label="Toggle navigation" className="cursor-pointer">
-          <LayoutGrid className="h-5 w-5" />
-        </Button>
+        {open ? <PanelLeft className="h-5 w-5 cursor-pointer" onClick={toggle} /> : <Square className="h-5 w-5 cursor-pointer" onClick={toggle} />}
       </div>
 
       <nav className="hidden md:flex items-center gap-6">

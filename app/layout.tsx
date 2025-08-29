@@ -1,77 +1,85 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider"
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
 
-import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import './globals.css';
+import Header from '@/components/header';
+import { SidebarProvider, Sidebar } from '@/components/sidebar';
+import Footer from '@/components/footer';
+import Main from './main';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   // Adjust domain before production deploy
-  metadataBase: new URL("https://example.com"), // TODO: replace with real site URL
+  metadataBase: new URL('https://example.com'), // TODO: replace with real site URL
   title: {
-    default: "Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS",
-    template: "%s | Type-Safe TS Engineering"
+    default:
+      'Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS',
+    template: '%s | Type-Safe TS Engineering',
   },
-  description: "Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.",
+  description:
+    'Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.',
   keywords: [
-    "TypeScript",
-    "React",
-    "Angular",
-    "Next.js",
-    "Astro",
-    "NestJS",
-    "Node.js",
-    "Express",
-    "RxJS",
-    "Effect-TS",
-    "Zustand",
-    "Frontend Engineering",
-    "Backend APIs",
-    "Full-Stack",
-    "Architecture"
+    'TypeScript',
+    'React',
+    'Angular',
+    'Next.js',
+    'Astro',
+    'NestJS',
+    'Node.js',
+    'Express',
+    'RxJS',
+    'Effect-TS',
+    'Zustand',
+    'Frontend Engineering',
+    'Backend APIs',
+    'Full-Stack',
+    'Architecture',
   ],
   openGraph: {
-    title: "Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS",
-    description: "Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.",
-    url: "/",
-    siteName: "Type-Safe Engineering",
-    locale: "en_US",
-    type: "website",
+    title:
+      'Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS',
+    description:
+      'Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.',
+    url: '/',
+    siteName: 'Type-Safe Engineering',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
-        url: "/og-image.png",
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: "Type-Safe Frontend & Backend Engineering"
-      }
-    ]
+        alt: 'Type-Safe Frontend & Backend Engineering',
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS",
-    description: "Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.",
-    creator: "@yourhandle", // TODO: replace with real handle
-    images: ["/og-image.png"],
+    card: 'summary_large_image',
+    title:
+      'Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS',
+    description:
+      'Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.',
+    creator: '@yourhandle', // TODO: replace with real handle
+    images: ['/og-image.png'],
   },
   alternates: {
-    canonical: "/"
+    canonical: '/',
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png"
-  }
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -90,11 +98,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+          <SidebarProvider>
+            <Header />
+            <Main>{children}</Main>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>

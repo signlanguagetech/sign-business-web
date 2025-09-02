@@ -33,7 +33,7 @@ export function TestimonialCard({
           />
           
           {/* Quote overlay that slides up from bottom */}
-          <div className="absolute inset-x-0 bottom-10 translate-y-full group-hover:translate-y-10 transition-transform duration-500 ease-out bg-black/80 backdrop-blur-sm p-2 rounded-[10px]">
+          <div className="absolute inset-x-0 bottom-0 md:bottom-10 translate-y-full group-hover:translate-y-10 transition-transform duration-500 ease-out bg-black/80 backdrop-blur-sm p-2 rounded-[10px]">
             <blockquote className="text-white text-xs lg:text-sm leading-relaxed overflow-y-auto scrollbar scrollbar-track-transparent scrollbar-thumb-white h-32 pt-2">
               "{quote}"
             </blockquote>

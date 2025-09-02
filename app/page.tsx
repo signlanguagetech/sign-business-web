@@ -130,7 +130,7 @@ export default function Home() {
 						</h2>
 					</div>
 					{/* Horizontal scrolling testimonial cards for both mobile and desktop */}
-					<div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+					<div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
 						<TestimonialCard
 							quote="They re-architected our Angular + RxJS frontends into a predictable stream-based model and reduced UI regressions by 40% while cutting bundle size. Their deep understanding of reactive patterns transformed our complex data flows into maintainable, testable code that our entire team could understand."
 							name="Jane Doe"

@@ -129,20 +129,55 @@ export default function Home() {
 							What Our Clients Sign
 						</h2>
 					</div>
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+					{/* Horizontal scrolling testimonial cards for both mobile and desktop */}
+					<div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
 						<TestimonialCard
-							quote="They re-architected our Angular + RxJS frontends into a predictable stream-based model and reduced UI regressions by 40% while cutting bundle size."
+							quote="They re-architected our Angular + RxJS frontends into a predictable stream-based model and reduced UI regressions by 40% while cutting bundle size. Their deep understanding of reactive patterns transformed our complex data flows into maintainable, testable code that our entire team could understand."
 							name="Jane Doe"
 							title="CTO at ExampleCorp"
-							avatarUrl="https://placehold.co/100x100"
-							avatarFallback="JD"
+							youtubeVideoId="-rdqQhw1_4M"
 						/>
 						<TestimonialCard
-							quote="Our Next.js + NestJS platform gained type-safe contracts end-to-end—deployment confidence improved and feature lead time dropped noticeably."
+							quote="Our Next.js + NestJS platform gained type-safe contracts end-to-end—deployment confidence improved and feature lead time dropped noticeably. The implementation of Effect-TS for error handling and async operations has made our codebase incredibly robust and eliminated entire classes of runtime errors."
 							name="John Smith"
 							title="Founder at Innovate LLC"
-							avatarUrl="https://placehold.co/100x100"
-							avatarFallback="JS"
+							youtubeVideoId="cZi6OkWsGHE"
+						/>
+						<TestimonialCard
+							quote="Working with their team transformed our development process completely."
+							name="Sarah Wilson"
+							title="Lead Developer at TechFlow"
+							youtubeVideoId="dQw4w9WgXcQ"
+						/>
+						<TestimonialCard
+							quote="The migration from legacy jQuery to React with Zustand state management was seamless. They provided excellent mentoring to our junior developers and established coding standards that continue to benefit our team months after the project completion. The performance improvements were immediately noticeable."
+							name="Michael Chen"
+							title="Engineering Manager at DataSync"
+							youtubeVideoId="dQw4w9WgXcQ"
+						/>
+						<TestimonialCard
+							quote="Their expertise in full-stack TypeScript development helped us build a scalable microservices architecture with GraphQL federation. The documentation and knowledge transfer they provided ensures our team can maintain and extend the system independently with confidence."
+							name="Emily Rodriguez"
+							title="VP of Engineering at CloudScale"
+							youtubeVideoId="dQw4w9WgXcQ"
+						/>
+						<TestimonialCard
+							quote="Working with their team transformed our development process completely."
+							name="Sarah Wilson"
+							title="Lead Developer at TechFlow"
+							youtubeVideoId="dQw4w9WgXcQ"
+						/>
+						<TestimonialCard
+							quote="Working with their team transformed our development process completely."
+							name="Sarah Wilson"
+							title="Lead Developer at TechFlow"
+							youtubeVideoId="dQw4w9WgXcQ"
+						/>
+						<TestimonialCard
+							quote="Working with their team transformed our development process completely."
+							name="Sarah Wilson"
+							title="Lead Developer at TechFlow"
+							youtubeVideoId="dQw4w9WgXcQ"
 						/>
 					</div>
 				</div>

@@ -12,12 +12,12 @@ export function TestimonialCard({
   youtubeVideoId: string;
 }) {
   return (
-    <Card className="group relative overflow-hidden bg-black text-white border-white/20 w-80 lg:w-96 flex-shrink-0 snap-center hover:shadow-2xl transition-all duration-300">
+    <Card className="group relative overflow-hidden border-white/20 w-80 lg:w-96 flex-shrink-0 snap-center hover:shadow-2xl transition-all duration-300">
       <CardContent className="p-4 lg:p-6">
         {/* Header with name and title */}
         <div className="mb-4 lg:mb-6">
-          <h3 className="text-lg lg:text-xl font-bold text-white mb-1">{name}</h3>
-          <p className="text-white/80 text-sm">{title}</p>
+          <h3 className="text-lg lg:text-xl font-bold mb-1">{name}</h3>
+          <p className="text-sm">{title}</p>
         </div>
         
         {/* YouTube Video Container */}

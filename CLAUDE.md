@@ -35,7 +35,7 @@ When making changes, prioritize:
 
 Package manager is **pnpm** (see `pnpm-workspace.yaml`, `pnpm-lock.yaml`).
 
-- `pnpm dev` — start Next.js dev server with Turbopack
+- `pnpm dev` — start Next.js dev server (Turbopack is the default in Next.js 16)
 - `pnpm build` — production build
 - `pnpm start` — run production build
 - `pnpm lint` — ESLint (config: `eslint-config-next`)
@@ -44,7 +44,7 @@ There is no test runner configured.
 
 ## Architecture
 
-Next.js 15 (App Router) + React 19 + TypeScript marketing site. Routes under `app/` are static pages: `about/`, `contact/`, `portfolio/`, `services/`, plus root `page.tsx`.
+Next.js 16 (App Router) + React 19 + TypeScript marketing site. Routes under `app/` are static pages: `about/`, `contact/`, `portfolio/`, `services/`, plus root `page.tsx`.
 
 Key structural pieces:
 

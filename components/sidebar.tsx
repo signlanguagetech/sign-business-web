@@ -56,9 +56,20 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
 export function Sidebar() {
   const { open, close } = useSidebar();
   const pathname = usePathname();
+  const [hash, setHash] = useState("");
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleLinkClick = () => {
+  useEffect(() => {
+    const sync = () => setHash(window.location.hash);
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+
+  const handleLinkClick = (href: string) => {
+    if (href.includes("#")) {
+      setHash("#" + href.split("#")[1]);
+    }
     // Only close on mobile (< md breakpoint)
     if (window.innerWidth < 768) {
       close();
@@ -84,12 +95,15 @@ export function Sidebar() {
     >
       <nav className="pl-10 space-y-4">
         {navLinks.map(({ href, label }) => {
-          const isActive = pathname === href;
+          const hashPart = href.includes("#") ? "#" + href.split("#")[1] : "";
+          const isActive = hashPart
+            ? pathname === "/" && hash === hashPart
+            : pathname === href;
           return (
             <Link
               key={href}
               href={href}
-              onClick={handleLinkClick}
+              onClick={() => handleLinkClick(href)}
               className={cn(
                 "block text-lg font-handwriting transition-colors hover:text-primary",
                 isActive ? "text-primary" : "text-foreground"

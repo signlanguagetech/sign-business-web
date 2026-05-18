@@ -4,16 +4,7 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Our Work' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/glossary-signs', label: 'Glossary Signs' },
-  { href: '/workshops', label: 'Workshops' },
-  { href: '/presentation', label: 'Presentations' },
-  { href: '/prepare-interview', label: 'Prepare Interview' },
-  { href: '/team', label: 'Team' },
-  { href: '/vision', label: 'Vision' },
-  // { href: '/category-identifier', label: 'AI Tool' },
-  // { href: '/contact', label: 'Contact' },
+  { href: '/#about', label: 'About' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#contact', label: 'Contact' },
 ];

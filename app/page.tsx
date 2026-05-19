@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   LayoutDashboard,
@@ -11,13 +12,11 @@ import {
   ShieldCheck,
   CheckCircle,
   Mail,
-  Phone,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/service-card';
 import { FeatureCard } from '@/components/feature-card';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ContactForm } from '@/components/contact-form';
 
 const values = [
   {
@@ -106,6 +105,16 @@ export default function Home() {
               <Link href="/#contact">Schedule a Free Consultation</Link>
             </Button>
           </div>
+        </div>
+        <div className="mx-auto mt-8 w-full/2 max-w-4xl px-4 md:mt-12">
+          <Image
+            src="/sb-flow.svg"
+            alt="Software delivery workflow illustration"
+            width={1440}
+            height={540}
+            priority
+            className="h-auto w-full dark:invert"
+          />
         </div>
       </section>
 

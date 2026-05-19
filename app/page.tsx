@@ -95,7 +95,7 @@ export default function Home() {
         <div className="container flex flex-col px-4 mx-auto">
           <div className="relative sm:h-32 md:h-60 h-80 w-full lg:w-1/2 md:w-2/4 mb-4 flex items-center justify-center overflow-hidden">
             <h1 className="text-4xl font-headline font-bold text-primary transition-all duration-1000 ease-[var(--ease-back-in-out)] absolute w-full">
-              From planning to implementation, we deliver efficient development tailored to your business needs
+              From AI-enabled planning to implementation, we deliver efficient development tailored to your business needs
             </h1>
           </div>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl">

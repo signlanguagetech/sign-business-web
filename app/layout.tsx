@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: 'AI-Enabled Full-Stack Engineering',
-  authors: [{ name: 'Sign Business Engineering' }],
+  authors: [{ name: 'Sign Solutions Engineering Team' }],
   category: 'Software Engineering Services',
   keywords: [
     // Core stack

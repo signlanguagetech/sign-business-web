@@ -10,7 +10,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <CodeXml className="h-7 w-7 text-primary" />
               <span className="font-bold font-headline text-xl text-primary">
-                Sign Business
+                Sign Solutions
               </span>
             </Link>
             <p className="text-muted-foreground text-center md:text-left text-sm max-w-xs">
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Sign Business. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sign Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

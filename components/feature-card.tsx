@@ -1,3 +1,5 @@
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+
 export function FeatureCard({
   icon,
   title,
@@ -8,10 +10,16 @@ export function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="p-4 bg-primary/10 rounded-full">{icon}</div>
-      <h3 className="mt-4 text-xl font-headline font-bold">{title}</h3>
-      <p className="mt-2 text-muted-foreground">{description}</p>
-    </div>
+    <Card className="text-center h-full">
+      <CardHeader>
+        <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
+          {icon}
+        </div>
+        <CardTitle className="font-headline text-xl">{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+    </Card>
   );
 }

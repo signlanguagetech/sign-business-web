@@ -138,24 +138,26 @@ export default function Home() {
 
       {/* Services Section */}
       <section id="services" className="scroll-mt-16 py-16 md:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold">How We Can Help You</h2>
-            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-              Focused on four pillars: modern frontend engineering, resilient reactive/state architecture, scalable TypeScript APIs, and cohesive full-stack delivery.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map(service => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                href={service.href}
-              />
+        <div className="text-center mb-12 container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">How We Can Help You</h2>
+          <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+            Focused on four pillars: modern frontend engineering, resilient reactive/state architecture, scalable TypeScript APIs, and cohesive full-stack delivery.
+          </p>
+        </div>
+        <div className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scroll-px-4 scrollbar-hide">
+          {services.map(service => (
+            <div
+              key={service.title}
+              className="snap-start shrink-0 w-[85%] sm:w-[55%] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-3*2rem)/4)]"
+            >
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  href={service.href}
+                />
+              </div>
             ))}
-          </div>
         </div>
       </section>
 
@@ -184,19 +186,24 @@ export default function Home() {
               We are the engineering partner we always wished we had — deep technical expertise paired with true partnership and transparent communication, helping teams turn ambitious ideas into production-grade software.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mt-12 flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0">
             {values.map(value => (
-              <Card key={value.name} className="text-center">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
-                    <CheckCircle className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-xl">{value.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
+              <div
+                key={value.name}
+                className="snap-center shrink-0 w-[85%] sm:w-[55%] md:w-auto md:shrink"
+              >
+                <Card className="text-center h-full">
+                  <CardHeader>
+                    <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
+                      <CheckCircle className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="font-headline text-xl">{value.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{value.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -213,14 +220,18 @@ export default function Home() {
               We blend architecture discipline with delivery speed—turning complex frontend + backend requirements into maintainable systems.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 text-center">
             {features.map(feature => (
-              <FeatureCard
+              <div
                 key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
+                className="snap-center shrink-0 w-[85%] sm:w-[60%] md:w-auto md:shrink"
+              >
+                <FeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                />
+              </div>
             ))}
           </div>
         </div>

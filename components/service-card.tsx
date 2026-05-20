@@ -14,7 +14,7 @@ export function ServiceCard({
   href: string;
 }) {
   return (
-    <Card className="group text-center text-primary-44 hover:text-primary-100 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
+    <Card className="group h-full text-center text-primary-44 hover:text-primary-100 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
       <Link href={href} className="flex flex-col h-full">
         <CardHeader className="items-center">
           <div className="p-4 bg-primary/10 rounded-full">{icon}</div>

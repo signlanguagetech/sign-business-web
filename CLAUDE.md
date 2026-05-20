@@ -44,19 +44,26 @@ There is no test runner configured.
 
 ## Architecture
 
-Next.js 16 (App Router) + React 19 + TypeScript marketing site. Routes under `app/` are static pages: `about/`, `contact/`, `portfolio/`, `services/`, plus root `page.tsx`.
+Next.js 16 (App Router) + React 19 + TypeScript marketing site. `app/` currently contains a single root `page.tsx` plus `not-found.tsx`, `layout.tsx`, `main.tsx`, and `globals.css` — there are no per-route subdirectories. Navigation links in `components/nav-links.ts` point to in-page anchors on the home page (`/#about`, `/#services`, `/#contact`), and `app/page.tsx` renders those as `<section id="…">` blocks (Hero, Services, Solutions Workflow, About/Values, Why Choose Us/Features, Contact). When adding a new "page", decide whether it should be a new section on the home page or a new route folder under `app/`, and update `nav-links.ts` accordingly.
 
 Key structural pieces:
 
 - **`app/layout.tsx`** — Root server layout. Wraps everything in `ThemeProvider` (next-themes, class attribute, system default) → `SidebarProvider` → `Header` + `Main`. Loads Geist Sans/Mono via `next/font`. Holds site-wide `Metadata` (title template, OG, Twitter) — `metadataBase`, `twitter.creator`, and OG image have TODO placeholders that must be replaced before production deploy.
 - **`app/main.tsx`** — Client component wrapping page content. Reads `useSidebar()` to shift main content right (`md:ml-64`) when the sidebar opens on desktop, and renders the mobile backdrop. Page content is rendered as `children` between `<Sidebar />` and `<Footer />`.
+- **`app/page.tsx`** — Single-page home (`'use client'`). Defines the `services`, `values`, and `features` arrays inline and renders each as a horizontally scrollable carousel paired with `CarouselControls`. If you add or remove items in these arrays, the pagination hook (`useCarouselPagination`) adapts automatically — no extra wiring needed.
 - **`components/sidebar.tsx`** — Provides `SidebarProvider` context plus `useSidebar()`. The provider lives in the server `layout.tsx`, but consumers (Header toggle, `Main` margin shift) are client components.
-- **`components/nav-links.ts`** — Single source of truth for navigation entries used by both `Header` and `Sidebar`.
+- **`components/nav-links.ts`** — Single source of truth for navigation entries used by both `Header` and `Sidebar`. Entries are anchor links into `app/page.tsx` sections.
+- **`components/service-card.tsx`, `feature-card.tsx`, `testimonial-card.tsx`** — Presentation cards consumed by the home page sections. Use these (not raw `Card` primitives) when adding entries to keep visual consistency.
+- **`components/carousel-controls.tsx` + `hooks/useCarouselPagination.ts`** — Carousel system. The hook attaches a `ref` to a horizontally scrollable container, infers step size from the first child's width + column gap, and exposes `{ ref, active, pages, scrollBy, scrollTo }`. `CarouselControls` renders prev/next buttons and dot pagination from that state. The controls are commonly hidden on `md+` (`className="md:hidden"`) when the underlying layout switches from carousel to grid.
+- **`hooks/useRotatingList.tsx`** — Helper for cycling through a list of values (e.g. rotating hero copy). Available for new sections that need timed rotation.
+- **`components/contact-form.tsx`** — Client-side contact form (uses `zod` for validation; no backend submission endpoint is wired up — submission handling is a TODO).
 
 ### Styling
 
 - **Tailwind CSS v4** via `@tailwindcss/postcss`. Global tokens and `@theme inline` mapping live in `app/globals.css` (no `tailwind.config.js`). `tw-animate-css` is imported there.
-- **shadcn/ui** (style: `new-york`, base color: `neutral`, RSC enabled). Generated components go to `components/ui/`. **Tailwind class prefix is `tw-`** (configured in `components.json`) — any `shadcn add` output and any utilities intended to match shadcn primitives must use the `tw-` prefix. Most existing hand-written components in `components/` use unprefixed Tailwind classes; preserve the style of the file you are editing.
+- Custom theme tokens defined in `globals.css`: extra colors (`--primary-44`, `--primary-100`), custom easing functions (`--ease-back-in-out`, `--ease-back-out`, `--ease-back-in`, `--ease-curve-sidebar`), and extra radius scale (`--radius-2xl/3xl/4xl`). Reuse these (e.g. `ease-[var(--ease-back-in-out)]`) instead of introducing new ad-hoc easings or colors.
+- Custom utility: `scrollbar-hide` (declared via `@utility` in `globals.css`) — apply to horizontally scrollable carousel containers to suppress the scrollbar.
+- **shadcn/ui** (style: `new-york`, base color: `neutral`, RSC enabled). Generated components go to `components/ui/` (current set: `avatar`, `badge`, `button`, `card`, `dropdown-menu`, `sheet`). **Tailwind class prefix is `tw-`** (configured in `components.json`) — any `shadcn add` output and any utilities intended to match shadcn primitives must use the `tw-` prefix. Most existing hand-written components in `components/` use unprefixed Tailwind classes; preserve the style of the file you are editing.
 - Path aliases (`tsconfig.json` + `components.json`): `@/components`, `@/components/ui`, `@/lib`, `@/lib/utils` (exports `cn`), `@/hooks`.
 
 ### Images

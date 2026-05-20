@@ -21,6 +21,8 @@ import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/service-card';
 import { FeatureCard } from '@/components/feature-card';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CarouselControls } from '@/components/carousel-controls';
+import { useCarouselPagination } from '@/hooks/useCarouselPagination';
 
 const values = [
   {
@@ -115,6 +117,10 @@ const features = [
 ];
 
 export default function Home() {
+  const servicesPag = useCarouselPagination(services.length);
+  const valuesPag = useCarouselPagination(values.length);
+  const featuresPag = useCarouselPagination(features.length);
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -144,7 +150,10 @@ export default function Home() {
             Focused on four pillars: modern frontend engineering, resilient reactive/state architecture, scalable TypeScript APIs, and cohesive full-stack delivery.
           </p>
         </div>
-        <div className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scroll-px-4 scrollbar-hide">
+        <div
+          ref={servicesPag.ref}
+          className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scroll-px-4 scrollbar-hide"
+        >
           {services.map(service => (
             <div
               key={service.title}
@@ -159,6 +168,7 @@ export default function Home() {
               </div>
             ))}
         </div>
+        <CarouselControls pagination={servicesPag} label="services" />
       </section>
 
       {/* Solutions Workflow */}
@@ -186,7 +196,10 @@ export default function Home() {
               We are the engineering partner we always wished we had — deep technical expertise paired with true partnership and transparent communication, helping teams turn ambitious ideas into production-grade software.
             </p>
           </div>
-          <div className="mt-12 flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0">
+          <div
+            ref={valuesPag.ref}
+            className="mt-12 flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0"
+          >
             {values.map(value => (
               <div
                 key={value.name}
@@ -206,6 +219,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <CarouselControls pagination={valuesPag} label="values" className="md:hidden" />
         </div>
       </section>
 
@@ -220,7 +234,10 @@ export default function Home() {
               We blend architecture discipline with delivery speed—turning complex frontend + backend requirements into maintainable systems.
             </p>
           </div>
-          <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 text-center">
+          <div
+            ref={featuresPag.ref}
+            className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 text-center"
+          >
             {features.map(feature => (
               <div
                 key={feature.title}
@@ -234,6 +251,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <CarouselControls pagination={featuresPag} label="features" className="md:hidden" />
         </div>
       </section>
 

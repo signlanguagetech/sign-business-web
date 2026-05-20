@@ -19,17 +19,24 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const SITE_TITLE =
+  'AI-Enabled Full-Stack Engineering | Frontend · Backend · Cloud · AI/ML';
+const SITE_DESCRIPTION =
+  'From AI-enabled planning to production delivery: type-safe frontend & backend engineering (React, Angular, Next.js, NestJS), cloud & DevOps, agentic AI, machine learning, and database engineering — tailored to your business needs.';
+
 export const metadata: Metadata = {
   // Adjust domain before production deploy
   metadataBase: new URL('https://example.com'), // TODO: replace with real site URL
   title: {
-    default:
-      'Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS',
-    template: '%s | Type-Safe TS Engineering',
+    default: SITE_TITLE,
+    template: '%s | AI-Enabled Full-Stack Engineering',
   },
-  description:
-    'Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.',
+  description: SITE_DESCRIPTION,
+  applicationName: 'AI-Enabled Full-Stack Engineering',
+  authors: [{ name: 'Sign Business Engineering' }],
+  category: 'Software Engineering Services',
   keywords: [
+    // Core stack
     'TypeScript',
     'React',
     'Angular',
@@ -41,18 +48,54 @@ export const metadata: Metadata = {
     'RxJS',
     'Effect-TS',
     'Zustand',
+    // Service themes
     'Frontend Engineering',
     'Backend APIs',
-    'Full-Stack',
-    'Architecture',
+    'Full-Stack Development',
+    'Software Architecture',
+    'Reactive State Management',
+    // Cloud & DevOps
+    'Cloud Engineering',
+    'DevOps',
+    'AWS',
+    'GCP',
+    'Azure',
+    'Infrastructure as Code',
+    'CI/CD',
+    // AI / ML
+    'AI-Enabled Delivery',
+    'Agentic Frameworks',
+    'AI Engineering',
+    'Machine Learning',
+    'LLM Integration',
+    // Data
+    'Database Engineering',
+    'PostgreSQL',
+    'MySQL',
+    'MongoDB',
+    'Redis',
+    'Data Pipelines',
+    // Business
+    'Software Consulting',
+    'Embedded Engineering Team',
+    'Product Development',
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
-    title:
-      'Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS',
-    description:
-      'Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: '/',
-    siteName: 'Type-Safe Engineering',
+    siteName: 'AI-Enabled Full-Stack Engineering',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -60,16 +103,14 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Type-Safe Frontend & Backend Engineering',
+        alt: 'AI-Enabled Full-Stack Engineering — Frontend, Backend, Cloud, AI/ML',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Type-Safe Frontend & Backend Engineering | React · Angular · Next.js · NestJS',
-    description:
-      'Type-safe frontend & backend engineering: React, Angular, Next.js, Astro, RxJS, Effect-TS, Zustand, Node.js, NestJS & Express for performant delivery.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     creator: '@yourhandle', // TODO: replace with real handle
     images: ['/og-image.png'],
   },
@@ -80,6 +121,11 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 

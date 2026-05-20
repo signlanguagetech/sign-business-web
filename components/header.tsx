@@ -8,7 +8,7 @@ import { ModeToggle } from './mode-toggle';
 import { navLinks } from './nav-links';
 
 export default function Header() {
-  const title = 'Sign Business';
+  const title = 'Sign Solutions';
   const [open, setOpen] = useState(false);
 
   const close = () => setOpen(false);
@@ -17,7 +17,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="relative flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2" onClick={close}>
-          <CodeXml className="h-7 w-7 text-primary" />
           <span className="font-bold font-headline text-xl text-primary">
             {title}
           </span>

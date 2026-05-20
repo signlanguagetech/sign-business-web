@@ -14,6 +14,8 @@ import {
   Mail,
   Cloud,
   BrainCircuit,
+  Bot,
+  Database,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/service-card';
@@ -75,7 +77,7 @@ const services = [
     href: '/#services',
   },
   {
-    icon: <Workflow className="h-8 w-8 text-primary" />,
+    icon: <Bot className="h-8 w-8 text-primary" />,
     title: 'Agentic frameworks & AI-Enabled Delivery',
     description: 'Leveraging AI for project scoping, architecture design, and implementation strategies to accelerate development.',
     href: '/#services',
@@ -85,7 +87,13 @@ const services = [
     title: 'AI & Machine Learning',
     description: 'Implementing intelligent solutions using AI and machine learning to enhance decision-making and automate processes.',
     href: '/#services',
-  }
+  },
+  {
+  icon: <Database className="h-8 w-8 text-primary" />,
+  title: 'Database & Data Engineering',
+  description: 'Schema design, query optimization, and data pipeline architecture across relational (PostgreSQL, MySQL) and NoSQL (MongoDB, Redis) systems — including migrations, replication, and real-time data flows.',
+  href: '/#services',
+}
 ];
 
 const features = [
@@ -126,7 +134,34 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="mx-auto mt-8 w-full/2 max-w-4xl px-4 md:mt-12">
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="scroll-mt-16 py-16 md:py-24 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold">How We Can Help You</h2>
+            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+              Focused on four pillars: modern frontend engineering, resilient reactive/state architecture, scalable TypeScript APIs, and cohesive full-stack delivery.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map(service => (
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                href={service.href}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Workflow */}
+      <section className="scroll-mt-16 py-16 md:py-24 bg-secondary/30">
+        <div className="mx-auto w-full/2 max-w-xl px-4">
           <Image
             src="/sb-flow.svg"
             alt="Software delivery workflow illustration"
@@ -162,29 +197,6 @@ export default function Home() {
                   <p className="text-muted-foreground">{value.description}</p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="scroll-mt-16 py-16 md:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold">How We Can Help You</h2>
-            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-              Focused on four pillars: modern frontend engineering, resilient reactive/state architecture, scalable TypeScript APIs, and cohesive full-stack delivery.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map(service => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                href={service.href}
-              />
             ))}
           </div>
         </div>

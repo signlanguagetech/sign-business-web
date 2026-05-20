@@ -12,6 +12,8 @@ import {
   ShieldCheck,
   CheckCircle,
   Mail,
+  Cloud,
+  BrainCircuit,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/service-card';
@@ -66,6 +68,24 @@ const services = [
     description: 'End-to-end integration: frontend + backend alignment, CI/CD, code quality processes, performance budgets, maintainable monorepos.',
     href: '/#services',
   },
+  {
+    icon: <Cloud className="h-8 w-8 text-primary" />,
+    title: 'Cloud & DevOps',
+    description: 'Containerization, cloud deployment (AWS, GCP, Azure), infrastructure as code, monitoring, and performance optimization.',
+    href: '/#services',
+  },
+  {
+    icon: <Workflow className="h-8 w-8 text-primary" />,
+    title: 'Agentic frameworks & AI-Enabled Delivery',
+    description: 'Leveraging AI for project scoping, architecture design, and implementation strategies to accelerate development.',
+    href: '/#services',
+  },
+  {
+    icon: <BrainCircuit className="h-8 w-8 text-primary" />,
+    title: 'AI & Machine Learning',
+    description: 'Implementing intelligent solutions using AI and machine learning to enhance decision-making and automate processes.',
+    href: '/#services',
+  }
 ];
 
 const features = [

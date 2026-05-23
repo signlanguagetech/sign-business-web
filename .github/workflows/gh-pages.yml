@@ -47,3 +47,4 @@ jobs:
           external_repository: signlanguagetech/website-solutions
           publish_dir: ./out
           cname: solutions.signlanguagetech.com
+          force_orphan: true

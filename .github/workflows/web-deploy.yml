@@ -53,10 +53,19 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build with Next.js
         run: pnpm build
+      - name: Prepare Pages artifact
+        run: |
+          rm -rf .pages
+          if [ -d dist ]; then
+            cp -R dist .pages
+          else
+            echo "Expected Next.js export output in ./dist or ./out, but neither directory exists."
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.pages
 
   # Deployment job
   deploy:

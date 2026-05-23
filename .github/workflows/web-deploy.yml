@@ -46,6 +46,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build with Next.js
+        env:
+          NEXT_BASE_PATH: https://solutions.signlanguagetech.com
         run: pnpm build
       - name: Prepare Pages artifact
         run: |

@@ -8,7 +8,7 @@ import { ModeToggle } from './mode-toggle';
 import { navLinks } from './nav-links';
 
 export default function Header() {
-  const title = 'Sign Solutions';
+  const title = 'Solutions';
   const [open, setOpen] = useState(false);
 
   const close = () => setOpen(false);

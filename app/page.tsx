@@ -261,10 +261,10 @@ export default function Home() {
                 <div>
                   <h4 className="font-semibold text-lg">Email Us</h4>
                   <a
-                    href="mailto:hello@signlanguagetech.com"
+                    href="mailto:solutions@signlanguagetech.com"
                     className="text-primary font-medium hover:underline"
                   >
-                    hello@signlanguagetech.com
+                    solutions@signlanguagetech.com
                   </a>
                 </div>
             </div>

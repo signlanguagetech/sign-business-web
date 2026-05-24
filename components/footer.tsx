@@ -8,9 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <CodeXml className="h-7 w-7 text-primary" />
               <span className="font-bold font-headline text-xl text-primary">
-                Sign Solutions
+                 Solutions
               </span>
             </Link>
             <p className="text-muted-foreground text-center md:text-left text-sm max-w-xs">
@@ -29,15 +28,15 @@ export default function Footer() {
           <div className="text-center md:text-right">
             <h3 className="font-headline text-lg font-semibold mb-4">Connect With Us</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              <a href="mailto:hello@signlanguagetech.com" className="text-primary font-medium hover:underline">
-                hello@signlanguagetech.com
+              <a href="mailto:solutions@signlanguagetech.com" className="text-primary font-medium hover:underline">
+                solutions@signlanguagetech.com
               </a>
             </p>
           </div>
         </div>
 
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Sign Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sign Language Tech. All rights reserved.</p>
         </div>
       </div>
     </footer>

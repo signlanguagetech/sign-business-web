@@ -28,7 +28,11 @@ export default function Footer() {
 
           <div className="text-center md:text-right">
             <h3 className="font-headline text-lg font-semibold mb-4">Connect With Us</h3>
-            <p className="text-sm text-muted-foreground mb-4">hello@signlanguagetech.com</p>
+            <p className="text-sm text-muted-foreground mb-4">
+              <a href="mailto:hello@signlanguagetech.com" className="text-primary font-medium hover:underline">
+                hello@signlanguagetech.com
+              </a>
+            </p>
           </div>
         </div>
 

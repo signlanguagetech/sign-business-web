@@ -171,20 +171,6 @@ export default function Home() {
         <CarouselControls pagination={servicesPag} label="services" />
       </section>
 
-      {/* Solutions Workflow */}
-      <section className="scroll-mt-16 py-16 md:py-24 bg-secondary/30">
-        <div className="mx-auto w-full/2 max-w-xl px-4">
-          <Image
-            src="/sb-flow.svg"
-            alt="Software delivery workflow illustration"
-            width={1440}
-            height={540}
-            priority
-            className="h-auto w-full dark:invert"
-          />
-        </div>
-      </section>
-
       {/* About Section */}
       <section id="about" className="scroll-mt-16 py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -275,10 +261,10 @@ export default function Home() {
                 <div>
                   <h4 className="font-semibold text-lg">Email Us</h4>
                   <a
-                    href="mailto:hello@craftedcode.com"
+                    href="mailto:hello@signlanguagetech.com"
                     className="text-primary font-medium hover:underline"
                   >
-                    signlanguagetech@gmail.com
+                    hello@signlanguagetech.com
                   </a>
                 </div>
             </div>
